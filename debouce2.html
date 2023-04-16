@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="myid">Click me</button>
+  </body>
+</html>
+<script>
+  const debounce = (fn, delay) => {  //relate it with closer toggle function
+    let timeoutID;
+    return function (...args) {
+      if (timeoutID) {
+        clearInterval(timeoutID);
+      }
+
+      timeoutID = setTimeout(() => {
+        fn(...args);
+      }, delay);
+    };
+  };
+
+  document.getElementById("myid").addEventListener(  // document.getElementById("myid").addEventListener("click",fn)
+    "click",
+    debounce(() => {
+      console.log("click me");
+    }, 1000)
+    
+  );
+
+</script>

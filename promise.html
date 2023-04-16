@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <h1>Promise</h1>
+    sleep(500).then(res=> {
+        console.log('slept for ${res} milli seconds})
+     })
+     .then(errr=>{
+         console.log(err)
+     })
+    
+</body>
+</html>
+<script>
+    // let sleep=new Promise((resolve,reject)=>{
+    //     if(1){
+    //         resolve("you can sleep")
+    //     }
+    //     else{
+    //         reject("You acn not sleep")
+    //     }
+    // })
+    // sleep.then((res)=>{
+    //     console.log(res)
+    // })
+    
+    function sleep(time){
+        let sleep=new Promise((resolve,reject)=>{
+            if(time){
+                resolve(time)
+            }
+            else{
+                reject("sorry you cant sleep")
+            }
+        })
+        return sleep
+        
+    }
+
+    sleep().then(res=> {
+    console.log(`slept for ${res} milli seconds`)
+    }).catch((err)=>{
+        console.log(err)
+    })
+
+
+
+</script>
